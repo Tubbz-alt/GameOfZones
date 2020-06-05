@@ -69,6 +69,14 @@ This will initialize the account with 2 tokens, one is default chain specific to
 all looks good, the transferred tokens are appended to initially created fake tokens.
 
 ### 8. Now transfer back the tokens from source to chain (i.e., 10000doubloons)
+
+  ```
+  root@regen:~# rly tx transfer regengoz-3 gameofzoneshub-3 10000doubloons false $(rly ch addr gameofzoneshub-3)
+  I[2020-06-05|09:12:52.274] ✘ [regengoz-3]@{181} - msg(0:transfer) err(sdk:5:failed to execute message; message index: 0: 0doubloons is smaller than 10000doubloons: insufficient funds) 
+  Error: failed to send first transaction
+  ```
+
+tried with source: true too, just to cross check
   ```
   root@regen:~# rly tx transfer regengoz-3 gameofzoneshub-3 10000doubloons true $(rly ch addr gameofzoneshub-3)
   I[2020-06-05|09:12:52.274] ✘ [regengoz-3]@{178} - msg(0:transfer) err(sdk:5:failed to execute message; message index: 0: 0doubloons is smaller than 10000doubloons: insufficient funds) 
